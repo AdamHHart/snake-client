@@ -14,7 +14,6 @@ const connect = function() {
   // interpret incoming data as text
   conn.setEncoding('utf8'); 
 
-
   // conn.on("connect", () => {
   // console.log("Successfully connected to the game server. connectHandlerCallback");
   // });
@@ -29,6 +28,7 @@ const connect = function() {
 
   conn.on('connect', () => {
     console.log("Successfully connected to the game server. connectHandlerCallback");
+    conn.write("Move: up");
     rl.question(">>What's your name?  ", function(answer) {
       console.log("Name: " + answer);
       conn.write(answer);
